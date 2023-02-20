@@ -5,28 +5,25 @@ import time
 from task1 import Task1
 from task2 import Task2
 from system_flags import SystemFlags
-    
+
+
 def create_root() -> py_trees.behaviour.Behaviour:
     root = py_trees.composites.Selector(
         'root',
         memory=True,
         children=[
-            py_trees.composites.Parallel(
-                'task1_parallel',
-                policy=py_trees.common.ParallelPolicy.SuccessOnAll(),
-                children=[
-                    Task1.create_condition('task1'),
-                    Task1.create_action('task1')
-                ]
+            py_trees.decorators.EternalGuard(
+                name='task1_guard',
+                condition=Task1.eternal_guard,
+                blackboard_keys={'system_state'},
+                child=Task1('task1')
             ),
-            py_trees.composites.Parallel(
-                'task2_parallel',
-                policy=py_trees.common.ParallelPolicy.SuccessOnAll(),
-                children=[
-                    Task2.create_condition('task2'),
-                    Task2.create_action('task2')
-                ]
-            )
+            py_trees.decorators.EternalGuard(
+                name='task2_guard',
+                condition=Task2.eternal_guard,
+                blackboard_keys={'system_state'},
+                child=Task2('task2')
+            ),
         ]
     )
     
