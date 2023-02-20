@@ -7,24 +7,28 @@ from task2 import Task2
 from system_flags import SystemFlags
     
 def create_root() -> py_trees.behaviour.Behaviour:
-    root = py_trees.composites.Selector('root', memory=True)
-    
-    parallel_task1 = py_trees.composites.Parallel(
-        'task1_parallel',
-        policy=py_trees.common.ParallelPolicy.SuccessOnAll()
+    root = py_trees.composites.Selector(
+        'root',
+        memory=True,
+        children=[
+            py_trees.composites.Parallel(
+                'task1_parallel',
+                policy=py_trees.common.ParallelPolicy.SuccessOnAll(),
+                children=[
+                    Task1.create_condition('task1'),
+                    Task1.create_action('task1')
+                ]
+            ),
+            py_trees.composites.Parallel(
+                'task2_parallel',
+                policy=py_trees.common.ParallelPolicy.SuccessOnAll(),
+                children=[
+                    Task2.create_condition('task2'),
+                    Task2.create_action('task2')
+                ]
+            )
+        ]
     )
-    parallel_task1.add_child(Task1.create_condition('task1'))
-    parallel_task1.add_child(Task1.create_action('task1'))
-        
-    parallel_task2 = py_trees.composites.Parallel(
-        'task2_parallel',
-        policy=py_trees.common.ParallelPolicy.SuccessOnAll()
-    )
-    parallel_task2.add_child(Task2.create_condition('task2'))
-    parallel_task2.add_child(Task2.create_action('task2'))
-    
-    root.add_child(parallel_task1)
-    root.add_child(parallel_task2)
     
     return root
 
