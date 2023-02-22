@@ -1,5 +1,5 @@
-# exp_py_trees
-An experimental repo for testing the py_trees library
+# Experimenting with py-trees and ros2
+An experimental repo for testing the py_trees library with ros2 integration
 
 ## Building and Running
 To build the package run:
@@ -24,3 +24,25 @@ ros2 param set /system_state_mocker system_state { state_int }
 ```
 
 please take a look at the `SystemFlags` enum to see what states are supported
+
+## Relevant Links
+py-trees:
+ - [Docs](https://py-trees.readthedocs.io/en/devel/index.html)
+ - [GitHub](https://github.com/splintered-reality/py_trees)
+
+</br>
+
+py-trees-ros:
+ - [Docs](https://py-trees-ros.readthedocs.io/en/devel/index.html)
+ - [GitHub](https://github.com/splintered-reality/py_trees_ros)
+
+</br>
+
+py-trees-ros-interfaces:
+ - [GitHub](https://github.com/splintered-reality/py_trees_ros_interfaces)
+
+</br>
+
+py-trees-ros-tutorial:
+ - [Docs](https://py-trees-ros-tutorials.readthedocs.io/en/devel/index.html)
+ - [GitHub](https://github.com/splintered-reality/py_trees_ros_tutorials)
