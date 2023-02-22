@@ -33,7 +33,9 @@ def main():
     try:
         rclpy.spin(state_publisher)
     except KeyboardInterrupt:
-        rclpy.shutdown()
+        pass
+    finally:
+        rclpy.try_shutdown()
 
 if __name__ == '__main__':
     main()
