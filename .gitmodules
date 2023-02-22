@@ -1,3 +1,6 @@
 [submodule "src/py_trees_ros"]
 	path = src/py_trees_ros
 	url = https://github.com/splintered-reality/py_trees_ros.git
+[submodule "src/py_trees_ros_interfaces"]
+	path = src/py_trees_ros_interfaces
+	url = https://github.com/splintered-reality/py_trees_ros_interfaces.git
