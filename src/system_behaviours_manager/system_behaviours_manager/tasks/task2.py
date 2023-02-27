@@ -5,13 +5,11 @@ from system_behaviours_manager.common.system_flags import SystemFlags
 
 class Task2(py_trees.behaviour.Behaviour):
     def eternal_guard(blackboard: py_trees.blackboard.Client) -> bool:
-        if (
-            blackboard.system_state
+        return (
+            SystemFlags(blackboard.system_state)
             ==
             SystemFlags.HAS_FLAG2
-        ):
-            return True
-        return False
+        )
     
     def __init__(self, name: str) -> None:
         super(Task2, self).__init__(name)

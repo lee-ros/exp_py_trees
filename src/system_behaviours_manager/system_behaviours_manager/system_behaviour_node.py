@@ -42,7 +42,7 @@ class SystemBehaviourNode(Node):
         root = py_trees.composites.Selector(
             'root',
             memory=False,
-            children=[
+            children=[  
                 py_trees.decorators.EternalGuard(
                     name='task1_guard',
                     condition=Task1.eternal_guard,

@@ -23,8 +23,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            f'system_behaviour_tree = {package_name}.system_behaviour_node:main',
             f'system_state_mocker = {package_name}.system_state_mocker_node:main',
+            f'system_behaviour_tree = {package_name}.system_behaviour_node:main',
+            f'ros_behaviour_tree = {package_name}.ros_behaviour_tree:main',
         ],
     },
 )
